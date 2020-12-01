@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+</header>
+<body>
+    <li th:each="product : ${products}"
+        th:object="${product}">
+        <span style="color:black;font-weight: bolder;font-size: 12px; font-family: 'Montserrat', sans-serif;
+        ;"
+        th:text="*{id}"></span>
+        <span>|</span>
+        <span style="color:black;font-weight: bolder;font-size: 12px; font-family: 'Montserrat', sans-serif;
+        ;"
+        th:text="*{name}"></span>
+        <span>|</span>
+        <span style="color:black;font-weight: bolder;font-size: 12px; font-family: 'Montserrat', sans-serif;
+        ;"
+        th:text="*{price}"></span>
+        <span>|</span>
+        <span style="color:black;font-weight: bolder;font-size: 12px; font-family: 'Montserrat', sans-serif;
+        ;"
+        th:text="*{url}"></span>
+    </li>
+
+
+</body>
+</html>
