@@ -25,12 +25,21 @@ public class OrdersController {
        ));
    
        
-       @GetMapping("/orders")
-       private ArrayList<Order> GetAllOrders(){
-           return orders;
-       }
+       
     
-   
+       public static ArrayList<Order> GetAllOrdersId(int orderId){
+        ArrayList<Order> result = new ArrayList<>();
+        if(orderId==0){
+            return  orders;
+        }else{
+            for(Order element : orders){
+                if(element.getId()==orderId){
+                    result.add(element);
+                }
+            }
+            return result;
+        }
+    }
    
       
       
