@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class OrdersViewController {
+   
     @GetMapping("/orders")
     public ModelAndView GetAll(@RequestParam(name = "orderId", defaultValue = "0", required = false) int orderId){
         ArrayList<Order> result = OrdersController.GetAllOrdersId(orderId);
@@ -31,5 +32,5 @@ public class OrdersViewController {
         OrdersController.orders.add(new Order(newUser.getDate(),newUser.getNameUser(),newUser.getStatus()));
         return "redirect:/orders";
     }
-
+    
 }
