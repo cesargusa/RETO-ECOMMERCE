@@ -1,0 +1,56 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</header>
+<body>
+    <h1>ORDERS</h1>
+    <div>
+        <a th:href="@{http://localhost:9092/orders/new}"><button>Add Order</button></a>
+    </div>
+   <!--  <li th:each="order : ${orders}"
+        th:object="${order}">
+        <span style="color:black;font-weight: bolder;font-size: 12px; font-family: 'Montserrat', sans-serif;
+        ;"
+        th:text="*{nameUser}"></span>
+        <span style="color:black;font-weight: bolder;font-size: 12px; font-family: 'Montserrat', sans-serif;
+        ;"
+        th:text="*{id}"></span>
+        <a th:href="*{URL}"><button>VER</button></a>
+
+    </li> -->
+    <table >
+        <thead style="background-color: darkorange;">
+            <tr>
+                <th>ID</th>
+                <th>USER</th>
+                <th>DATE</th>
+                <th>STATUS</th>
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody th:each="order : ${orders}"
+        th:object="${order}">
+   
+            <td th:text="*{id}"></td>
+            <td th:text="*{nameUser}"></td>
+            <td th:text="*{date}"></td>
+            <td th:text="*{status}" th:if="*{status == 'Entregado'}" style="color: green;"></td>
+            <td th:text="*{status}" th:if="*{status == 'En Curso'}" style="color: yellow;"></td>
+            <td th:text="*{status}" th:if="*{status == 'Enviado'}" style="color: chartreuse;"></td>
+            <td th:text="*{status}" th:if="*{status == 'Aceptado'}" style="color: blue;"></td>
+            
+            <th>
+                <a th:href="*{URL}"> <button>VER</button></a> 
+                 <a> <button class="btnDelete" 
+                    th:url="@{|/orders/*{id}|}"
+                    th:extraInfo="*{id}" >ELIMINAR</button></a>
+            </th>
+        
+      
+        </tbody>
+    </table>
+
+
+</body>
+
+</html>

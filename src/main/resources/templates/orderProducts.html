@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <table style="width: 40%;border: 1px solid gray; ">
+        <thead style="background-color:yellow;">
+            <tr>
+                <th>Cantidad</th>
+                <th>Order ID</th>
+                <th>Product ID</th>
+                <th>OrderProduct Id</th>
+
+            </tr>
+        </thead>
+
+        <tbody th:each="o : ${orderproduct}" th:object="${o}">
+            <th th:text="*{cantidad}"> </th>
+            <th th:text="*{orderId}"> </th>
+            <th th:text="*{productId}"> </th>
+            <th th:text="*{orderProductId}"> </th>
+
+
+
+
+        </tbody>
+    </table>
+</html>
