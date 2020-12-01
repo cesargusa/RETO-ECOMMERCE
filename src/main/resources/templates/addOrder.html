@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+   <form th:action="@{/orders}" th:object="${order}" method="POST">
+        <p>Fecha<input th:field="*{date}"></p>
+        <p>User<input th:field="*{nameUser}"></p>
+        <select th:field="*{status}">
+               
+                <option th:value="'Entregado'">Entregado</option>
+                <option th:value="'En Curso'">En Curso</option>
+                <option th:value="'Enviado'">Enviado</option>
+                <option th:value="'Aceptado'">Aceptado</option>
+            </select>
+        <p><input type="submit"></p>
+
+        </form>
+    
+</body>
+</html>
