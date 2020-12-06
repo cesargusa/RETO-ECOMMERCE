@@ -1,6 +1,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <header>
     <link th:href="@{/css/orderProduct.css}" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </header>
 
 <body>
@@ -65,9 +67,42 @@
                 </tr>
             </tbody>
         </table>
+        <table id="productsTable3">
+            <thead>
+                <tr>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody th:each="pro2 : ${orderproduct}" th:object="${pro2}">
+            <tr>
+                <th><button class="btnDelete2" 
+                    th:url="@{|/OrderProducts/*{orderProductId}|}"
+                    th:extraInfo="*{orderProductId}">Eliminar</button></th>
+            </tr>
+            </tbody>
+        </table>
     </div>
     </div>
 
 </body>
-
+<script>
+    //CODIGO PARA BORRRAR UN PEDIDO//
+    $(document).ready(function(){
+        $(".btnDelete2").click(function(){
+            if(confirm("Eliminar?"))
+            {
+                let ID = $(this).attr('extraInfo');
+                let URL = $(this).attr('url');
+                $.ajax({
+                    type:'DELETE',
+                    url:URL,
+                    contentType: 'application/json'
+                }).done(function(data, textStatus,jqXHR){
+                        location.reload();
+                });
+            }
+        });
+         });
+   
+</script>
 </html>

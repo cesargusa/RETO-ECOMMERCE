@@ -2,6 +2,7 @@ package com.example.Product.API;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
 import com.example.Product.Model.OrderProduct;
 import com.example.Product.Model.Product;
@@ -77,13 +78,13 @@ public class OrdersProductsController {
     
     @DeleteMapping("/OrderProducts/{id}")
     public void Delete(@PathVariable("id") int id){
-        for(OrderProduct ele : orderproducts){
+        Iterator<OrderProduct> itOrderProduct = orderproducts.iterator();
+        while(itOrderProduct.hasNext()){
+            OrderProduct ele = itOrderProduct.next();
             if(ele.getOrderProductId()==id){
-                orderproducts.remove(ele);
-                break;
+                itOrderProduct.remove();
             }
         }
-       
         
     }
 
