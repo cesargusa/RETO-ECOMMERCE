@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<header>
+    <link th:href="@{/css/orderProduct.css}" rel="stylesheet"/>
+
+</header>
+<body>
+    <div id="izquierda">
+ <form th:action="@{/OrderProducts}" th:object="${orderProduct}" method="POST">
+
+    <p>Cantidad<input th:field="*{cantidad}"><span>Introduzca la cantidad</span></p>
+    <p>ORDER ID<input th:field="*{orderId}"><span>Introduzca la el ID del pedido</span></p>
+    <p>PRODUCT ID<input th:field="*{productId}"><span>Introduzca el ID del Producto(Abajo)</span></p>
+    <th><input type="submit"><input type="submit" value="Cancelar"></th>
+
+    </form>
+</div>
+<div id="derecha">
+
+</div>
+    <div >
+        <h1>CATALOGO PRODUCTOS</h1>
+        <table id="productCatalog">
+            <thead>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>PRICE</th>
+            </thead>
+            <tbody id="infoProduct" th:each="product : ${product}" th:object="${product}">
+                <tr>
+                    <th th:text="*{id}"></th>
+                    <th th:text="*{name}"></td>
+                    <th th:text="*{price} + €"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>
+
+
