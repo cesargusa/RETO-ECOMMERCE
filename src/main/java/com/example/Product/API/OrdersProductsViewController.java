@@ -31,10 +31,15 @@ public class OrdersProductsViewController {
      @GetMapping("/OrderProducts/new")
     public ModelAndView CreateOrderProduct(){
         ModelAndView mv = new ModelAndView("addProductsOrder");
+            ArrayList<Product> pro = ProductsController.products;
+         
+       
         mv.addObject("orderProduct", new OrderProduct());
+        mv.addObject("product", pro);
         return mv;
     }
- 
+
+    //METODO QUE CREA UN ORDERPRODUCT Y REDIRIGE A LA INFORMACION DEL PEDIDO AÑADIDO
     @PostMapping("/OrderProducts")
     public String Add(@ModelAttribute("orderProduct") OrderProduct newOrderProduct){
         OrdersProductsController.orderproducts.add(
@@ -43,7 +48,7 @@ public class OrdersProductsViewController {
             newOrderProduct.getOrderId(),
             newOrderProduct.getProductId()
             ));
-        return "redirect:/orders";
+        return "redirect:/OrderProducts?orderId="+newOrderProduct.getOrderId();
     }
    
 }

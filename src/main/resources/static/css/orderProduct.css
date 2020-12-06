@@ -1,0 +1,48 @@
+/* ORDER PRODUCTS*/
+#ordersTable{
+    width: 40%;
+    border: 1px solid gray;
+}
+#ordersTable thead{
+    background-color: springgreen;
+}
+#productsTable{
+    float: left; 
+    width: 80%;
+}
+#productsTable2{
+    float: right; 
+    width: 20%;
+
+}
+#productsTable2 thead{
+    background-color: red;
+}
+#productsTable thead{
+    background-color: red;
+}
+#products{
+    margin-top: 5%;
+}
+
+/* ORDERS*/
+#orders thead{
+    background-color: darkorange;
+    
+}
+
+#productCatalog{
+    width: 80%;
+    height: auto;
+    text-align: center;
+    border: 2px solid black;
+}
+#productCatalog thead{
+    background-color: blueviolet;
+    
+}
+#infoProduct tr{
+    background-color: blanchedalmond;
+font-size: 17px;    
+    
+}

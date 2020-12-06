@@ -1,38 +1,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
-
+<header>
+    <link th:href="@{/css/orderProduct.css}" rel="stylesheet"/>
 </header>
 
 <body>
 
     <h1>ORDER DETAIL</h1>
+    <!-- BOTONES QUE CREAN ORDERPRODUCT Y EL OTRO LLEVA A LOS ORDERS -->
     <div>
         <a th:href="@{http://localhost:9092/OrderProducts/new}"><button>Add Product</button></a>
+    </th:block>
         <a th:href="@{http://localhost:9092/orders}"><button>Orders</button></a>
     </div>
-        
-    
-    <!--   <li th:each="order : ${orderproduct}"
-        th:object="${order}" style="margin-top: 3%; list-style: none;">
-            <tr>
-                <th><span>Cantidad:</span></th>
-                <span style="color:red"><th th:text="*{cantidad}"></th></span>
-            </tr>
-            <br>
-       
-            <tr>
-                <th><span>Product Id:</span></th>
-                <span style="color:blue"><th th:text="*{productId}"></th></span>
-            </tr>
-            <br>
-            <tr>
-                <th><span>Order Id:</span></th>
-                <span style="color:aqua"><th th:text="*{orderId}"></th></span>            
-            </tr>
-    
-    </li>  -->
+    <!-- TABALA QUE SACA LOS DATOS DEL PEDIDO -->
+    <table id="ordersTable"  >
+        <thead>
 
-    <table style="width: 40%;border: 1px solid gray; ">
-        <thead style="background-color: springgreen;">
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
@@ -47,41 +30,43 @@
             <th th:text="*{nameUser}"> </th>
             <th th:text="*{date}"> </th>
             <th th:text="*{status}"> </th>
-
-
-
-
         </tbody>
     </table>
-    
-       <table style="float: left; width: 100%;" >
-        <thead style="background-color: red;">
-            <tr>
-            <th>ID</th>
-            <th>NAME</th>
-            <th>PRECIO</th>
-            <th>CANTIDAD</th>
-        </tr>
-        </thead>
-        <tbody>
-        <th:block th:each="pro : ${productsOrder}" th:object="${pro}">
-               <tr>
-                   <th th:text="*{id}"></th>
-                   <th th:text="*{name}"></th>
-                   <th th:text="*{price}"></th>
-                 
- </th:block>  
- <th>
-                <th:block th:each="orderproduct : ${orderproduct}" th:object="${orderproduct}"
-                    th style="text-align: center" th:text="*{cantidad}"></th:block>
-                    
-          
-      
-          </tr>
-        </tbody>
-       </table>
-       
 
+    <!-- TABLA QUE SACA EL ID, NOMBRE Y PRECIO DE LOS PRODUCTOS DEL PEDIDO -->
+    <div id="products">
+        <table id="productsTable" >
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>PRECIO</th>
+                </tr>
+            </thead>
+            <tbody  th:each="pro : ${productsOrder}" th:object="${pro}">
+                <tr>
+                    <th th:text="*{id}"></th>
+                    <th th:text="*{name}"></th>
+                    <th th:text="*{price} + €">€</th>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- TABLA QUE MUESTRA LA CANTIDAD DE CADA PEDIDO -->
+        <table id="productsTable2">
+            <thead>
+                <tr>
+                    <th>CANTIDAD</th>
+                </tr>
+            </thead>
+            <tbody th:each="orderproduct : ${orderproduct}" th:object="${orderproduct}">
+                <tr>
+                    <th th:text="*{cantidad}"></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
 
 </body>
 

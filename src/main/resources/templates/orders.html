@@ -1,5 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link th:href="@{/css/orderProduct.css}" rel="stylesheet"/>
 
 </header>
 <body>
@@ -18,8 +19,8 @@
         <a th:href="*{URL}"><button>VER</button></a>
 
     </li> -->
-    <table >
-        <thead style="background-color: darkorange;">
+    <table id="orders">
+        <thead >
             <tr>
                 <th>ID</th>
                 <th>USER</th>
@@ -33,11 +34,11 @@
    
             <td th:text="*{id}"></td>
             <td th:text="*{nameUser}"></td>
-            <td th:text="*{date}"></td>
-            <td th:text="*{status}" th:if="*{status == 'Entregado'}" style="color: green;"></td>
-            <td th:text="*{status}" th:if="*{status == 'En Curso'}" style="color: yellow;"></td>
-            <td th:text="*{status}" th:if="*{status == 'Enviado'}" style="color: chartreuse;"></td>
-            <td th:text="*{status}" th:if="*{status == 'Aceptado'}" style="color: blue;"></td>
+            <th th:text="*{date}"></th>
+            <td id="status" th:text="*{status}" th:if="*{status == 'Entregado'}" style="color: green;"></td>
+            <td id="status"th:text="*{status}" th:if="*{status == 'En Curso'}" style="color: yellow;"></td>
+            <td id="status"th:text="*{status}" th:if="*{status == 'Enviado'}" style="color: chartreuse;"></td>
+            <td id="status"th:text="*{status}" th:if="*{status == 'Aceptado'}" style="color: blue;"></td>
             
             <th>
                 <a th:href="*{URL}"> <button>VER</button></a> 
@@ -52,5 +53,24 @@
 
 
 </body>
-
+<script>
+    //CODIGO PARA BORRRAR UN PEDIDO//
+    $(document).ready(function(){
+        $(".btnDelete").click(function(){
+            if(confirm("Eliminar?"))
+            {
+                let ID = $(this).attr('extraInfo');
+                let URL = $(this).attr('url');
+                $.ajax({
+                    type:'DELETE',
+                    url:URL,
+                    contentType: 'application/json'
+                }).done(function(data, textStatus,jqXHR){
+                    window.location = "/orders"
+                });
+            }
+        });
+         });
+   
+</script>
 </html>

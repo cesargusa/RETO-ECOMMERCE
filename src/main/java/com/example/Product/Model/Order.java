@@ -69,5 +69,11 @@ public class Order {
     }
 
 
+    public void setURL(String uRL) {
+        URL = uRL;
+    }
+
+   
+
     
 }
