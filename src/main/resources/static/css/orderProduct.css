@@ -8,17 +8,46 @@
 }
 #productsTable{
     float: left; 
-    width: 80%;
+    width: 70%;
 }
+.grid-container {
+    display: grid;
+    grid-template-rows: 600px 300px;
+    grid-template-columns: 300px 400px 400px;
+    grid-gap: 5px;
+    margin-top: 10%;
+    margin-left: 3%;
+    float: left;
+  }
+  .grid-container img{
+      width:300px;
+      height: 400px;
+  }
+  .grid-container h1{
+      font-size: 23px;
+      text-align: center;
+  }
+  .grid-container input{
+      width: 18%;
+      margin-right: 23px;
+  }
 #productsTable2{
-    float: right; 
+    float: left; 
     width: 20%;
 
 }
+#productsTable3{
+    float: right;
+    width: 10%;
+
+}
 #productsTable2 thead{
-    background-color: red;
+    background-color: orange;
 }
 #productsTable thead{
+    background-color: orange;
+}
+#productsTable3 thead{
     background-color: red;
 }
 #products{
@@ -45,4 +74,13 @@
     background-color: blanchedalmond;
 font-size: 17px;    
     
+}
+
+#pp{
+    margin-top: 8%;
+}
+#mostrarDatos2{
+    float: right;
+    margin-right: 3%;
+    margin-bottom: 12%;
 }

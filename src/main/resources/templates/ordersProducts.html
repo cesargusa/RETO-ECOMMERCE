@@ -89,18 +89,17 @@
     //CODIGO PARA BORRRAR UN PEDIDO//
     $(document).ready(function(){
         $(".btnDelete2").click(function(){
-            if(confirm("Eliminar?"))
-            {
-                let ID = $(this).attr('extraInfo');
-                let URL = $(this).attr('url');
-                $.ajax({
-                    type:'DELETE',
-                    url:URL,
-                    contentType: 'application/json'
-                }).done(function(data, textStatus,jqXHR){
-                        location.reload();
-                });
-            }
+            let ID = $(this).attr('extraInfo');
+            let URL = $(this).attr('url');
+            $.ajax({
+                type: 'DELETE',
+                url: URL,
+                contentType: 'application/json'
+            }).done(function (data, textStatus, jqXHR) {
+                location.reload();
+            });
+
+        
         });
          });
    
