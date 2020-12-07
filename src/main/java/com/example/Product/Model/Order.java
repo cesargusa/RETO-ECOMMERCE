@@ -7,6 +7,7 @@ public class Order {
     private String nameUser;
     private String status;
     public String URL;
+    public String URLEcommerce;
     
     public Order(){}
 
@@ -16,6 +17,7 @@ public class Order {
         this.status = status;
         id=++idStatic;
         URL();
+        URLEcommerce();
     }
 
     public int getId() {
@@ -73,6 +75,16 @@ public class Order {
         URL = uRL;
     }
 
+    public String getURLEcommerce() {
+        return URLEcommerce;
+    }
+
+    public void setURLEcommerce(String uRLEcommerce) {
+        URLEcommerce = uRLEcommerce;
+    }
+    public void URLEcommerce(){
+        this.URLEcommerce = "http://localhost:9092/Ecommerce?orderId="+getId();
+    }
    
 
     

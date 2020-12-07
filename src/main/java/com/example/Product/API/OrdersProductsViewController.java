@@ -49,6 +49,23 @@ public class OrdersProductsViewController {
 
 
     }
+    @PostMapping("/Ecomemrce")
+    public String Add2(@ModelAttribute("ecommerce") OrderProduct newOrderProduct){
+  
+                OrdersProductsController.orderproducts.add(
+                    new OrderProduct(
+                    newOrderProduct.getCantidad(),
+                    newOrderProduct.getOrderId(),
+                    newOrderProduct.getProductId()
+                    ));
+                return "redirect:/Ecommerce?orderId="+newOrderProduct.getOrderId();
+           
+                
+           /* response.setStatus(HttpServletResponse.SC_NOT_FOUND); */
+            
+           
+
+        }
 
 
      @GetMapping("/OrderProducts/new")
