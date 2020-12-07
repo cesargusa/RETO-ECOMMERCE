@@ -1,0 +1,65 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<header>
+    <link th:href="@{/css/orderProduct.css}" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</header>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav" >
+            <li class="nav-item active" >
+              <a class="nav-link" href="#">Ecommerce <span class="sr-only">(current)</span></a>
+              
+            </li>
+            <li class="nav-item active" th:each="order : ${orders}"
+            th:object="${order}">
+                <a class="nav-link" th:href="*{URL}" th:text="*{nameUser}">Ecommerce <span class="sr-only">(current)</span></a>
+                
+              </li>
+            
+           
+             
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <!-- 
+      <div class="grid-container">
+          <span  th:each="product : ${productsOrder}" th:object="${product}">
+              <h1 th:text="*{name}"></h1>
+        <div class="grid-item1" th:text="*{name}"></div>
+        <div class="grid-item2">2</div>
+        <div class="grid-item3">3</div>
+        <div class="grid-item4">4</div>
+        <div class="grid-item5">5</div>
+        <div class="grid-item6">6</div>
+      </div>
+    </span> -->
+      <!-- TABALA QUE SACA LOS DATOS DEL PEDIDO -->
+      <div class="grid-container"  >
+    <div th:each="pro : ${pro}" th:object="${pro}">
+        <h1 th:text="*{name}"></h1>
+         <img th:src="*{url}">
+         <p th:text="*{price} + €"></p>
+         <div><input type="number"><button type="button" class="btn btn-success">COMPRAR</button>
+         </div>
+    </div>
+            
+           
+
+               
+
+ 
+      </div>
+    
+</body>
+
+</html>
+
+
+
