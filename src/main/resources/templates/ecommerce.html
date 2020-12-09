@@ -60,17 +60,15 @@
     </div>
 
 
-    
+  
+  
     <div id="pp">
-<h1 th:text="#{Pedido}"></h1>
+        <h1 th:text="#{Pedido}"></h1>
         <table id="mostrarDatos">
             <tbody th:each="t : ${productsOrder}" th:object="${t}">
                 <tr>
-                <li th:text="*{name}"></li>
-           
-                   
-               
-
+                <td th:text="*{name}"></td>
+              
                 </tr>
             </tbody>
 
@@ -84,9 +82,26 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-    </div>
+<!-- <h1 th:text="#{Pedido}"></h1>
+        <table id="mostrarDatos">
+            <tbody th:each="t : ${productsOrder}" th:object="${t}">
+                <tr>
+                <li th:text="*{name}"></li>
+                </tr>
+            </tbody>
 
+        </table>
+        
+        <table id="mostrarDatos2">
+            <tbody th:each="pro2 : ${orderproduct}" th:object="${pro2}">
+                <tr>
+                    <th> <button class="borrar" th:url="@{|/OrderProducts/*{orderProductId}|}"
+                            th:extraInfo="*{orderProductId}">Eliminar</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table> -->
+    </div>
 
 </body>
 <script>

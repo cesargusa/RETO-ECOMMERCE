@@ -79,9 +79,15 @@ font-size: 17px;
 
 #pp{
     margin-top: 8%;
+    margin-right: 15%;
+    float: right;
+    margin-top: 30px;
+    background-color: antiquewhite;
+    
 }
 #mostrarDatos2{
-    float: right;
-    margin-right: 3%;
-    margin-bottom: 12%;
+    float: left;
+}
+#mostrarDatos{
+    float: left;
 }
